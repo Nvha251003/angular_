@@ -9,22 +9,20 @@ import { IProduct } from '../interfaces/product';
 export class ProductService {
   API_URL = `http://localhost:3000/products`;
 
-  constructor(private http: HttpClient ) {}
+  constructor(private http: HttpClient) {}
   getAll(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.API_URL)
+    return this.http.get<IProduct[]>(this.API_URL);
   }
 
-  addProduct(product: IProduct): Observable<IProduct>{
-    return this.http.post<IProduct>(this.API_URL, product)
+  addProduct(product: IProduct): Observable<IProduct> {
+    return this.http.post<IProduct>(this.API_URL, product);
   }
 
   getProductById(id: number | string): Observable<IProduct> {
-    return this.http.get<IProduct>(`${this.API_URL}/${id}`)
+    return this.http.get<IProduct>(`${this.API_URL}/${id}`);
   }
 
   deleteProduct(id: number): Observable<IProduct> {
-    return this.http.delete<IProduct>(`${this.API_URL}/${id}`)
+    return this.http.delete<IProduct>(`${this.API_URL}/${id}`);
   }
-
-  
 }

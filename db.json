@@ -47,6 +47,22 @@
       "price": 200,
       "imageUrl": "https://picsum.photos/200",
       "id": 11
+    },
+    {
+      "name": "New Product",
+      "code": "NVH",
+      "releaseDate": "2023-09-28",
+      "price": 300,
+      "imageUrl": "https://picsum.photos/200",
+      "id": 12
+    },
+    {
+      "name": "New Product 1",
+      "code": "NVH",
+      "releaseDate": "2023-09-01",
+      "price": 10000,
+      "imageUrl": "https://picsum.photos/200",
+      "id": 13
     }
   ]
 }

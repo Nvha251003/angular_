@@ -9,21 +9,18 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent {
-  products: any;
-  prodId: any
+  products!: IProduct;
+  //prodId: any
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute
   ) {
-      this.route.paramMap.subscribe((params) => {
-        this.prodId = params.get('id')
-      })
-      this.productService.getProductById(this.prodId).subscribe({
-        next: (data) => {
-          this.products = data
-        }
-      })
+        this.route.params.subscribe(({id}) => {
+            this.productService.getProductById(id).subscribe({
+                next: (data) => this.products = data
+            })
+        })
     }
 }
 
