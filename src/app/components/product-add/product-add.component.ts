@@ -13,10 +13,10 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductAddComponent {
   productForm = this.formBuilder.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
-    code: [''],
-    releaseDate: [''],
-    price: [0],
-    imageUrl: [''],
+    code: ['',  [Validators.required, Validators.minLength(3)]],
+    releaseDate: ['', Validators.required],
+    price: [0, [Validators.required]],
+    imageUrl: ['', [Validators.required]],
   });
   constructor(
     private formBuilder: FormBuilder,

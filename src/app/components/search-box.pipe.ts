@@ -6,6 +6,6 @@ import { IProduct } from '../interfaces/product';
 })
 export class SearchBoxPipe implements PipeTransform {
   transform(products: IProduct[], searchText: string){
-    return products.filter((item: any) => item.name.toLowerCase().includes(searchText.toLocaleLowerCase))
+    return products.filter((item: any) => item.name.toLowerCase().includes(searchText.toLocaleLowerCase()))
   }
 }

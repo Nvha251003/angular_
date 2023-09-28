@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let product of products | searchBox : searchText;index as i">
+            <tr *ngFor="let product of products | searchBox : searchText ;index as i">
                 <td>{{ i + 1}}</td>
                 <td>
                     <img
@@ -38,7 +38,7 @@
                 <td>{{ product.price | currency : "VND" : "symbol" : "1.3-3"}}</td>
                 <td width="150">
                     <button class="btn btn-danger" (click)="removeProduct(product.id!)">Xóa</button>
-                    <a routerLink="edit"><button class="btn btn-primary ms-2">Sửa</button></a>
+                    <a routerLink="edit/{{product.id}}"><button class="btn btn-primary ms-2">Sửa</button></a>
                 </td>
             </tr>
         </tbody>

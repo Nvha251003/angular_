@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -18,27 +18,39 @@ export class ProductEditComponent {
 
   product!: IProduct
   productForm = this.formBuilder.group({
-    name: [''],
-      code: [''],
-      releaseDate: [''],
-      price: [0],
-      imageUrl: [''],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      code: ['',  [Validators.required, Validators.minLength(3)]],
+      releaseDate: ['', Validators.required],
+      price: [0, Validators.required],
+      imageUrl: ['', [Validators.required]],
   })
 
   constructor(
     private productService: ProductService,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-    this.route.paramMap.subscribe(param => {
-      const id = param.get('id');
-      console.log(id);
-      
+    this.route.params.subscribe(({ id }) => {
+      this.productService.getProductById(id).subscribe({
+        next: (data: IProduct) => {
+          this.product = data
+          this.productForm.patchValue(this.product as any)
+        }
+      })
     })
   }
 
   onHandleEdit() {
-    console.log('bac');
-    
+    const product = {
+      id: this.product.id,
+      ...this.productForm.value
+    }
+    this.productService.updateProduct(product as IProduct).subscribe({
+      next: () => {
+        alert('Product updated successfully')
+        this.router.navigate(['/admin'])
+      }
+    })
   }
 }

@@ -1,12 +1,12 @@
 {
   "products": [
     {
-      "name": "Product 1",
+      "id": 6,
+      "name": "Product 1 update",
       "code": "ABC",
       "releaseDate": "2023-09-26",
       "price": 200,
-      "imageUrl": "https://picsum.photos/200",
-      "id": 6
+      "imageUrl": "https://picsum.photos/200"
     },
     {
       "name": "Product 1",
@@ -49,12 +49,12 @@
       "id": 11
     },
     {
-      "name": "New Product",
+      "id": 12,
+      "name": "New Product update",
       "code": "NVH",
       "releaseDate": "2023-09-28",
       "price": 300,
-      "imageUrl": "https://picsum.photos/200",
-      "id": 12
+      "imageUrl": "https://picsum.photos/200"
     },
     {
       "name": "New Product 1",

@@ -28,7 +28,7 @@ export class ProductsComponent {
         },
       });
     }
-
+    
   removeProduct(id: any) {
     const confirm = window.confirm(
       'Are you sure you want to remove this product?'

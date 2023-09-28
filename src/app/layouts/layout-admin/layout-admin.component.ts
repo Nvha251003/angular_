@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout-admin.component.css']
 })
 export class LayoutAdminComponent {
-  searchText:any = ''
+  
 }
