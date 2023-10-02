@@ -16,7 +16,7 @@ const routes: Routes = [
     path: '',
     component: LayoutAdminComponent,
     children: [
-      { path: '', component: ProductListComponent },
+      { path: '', redirectTo: "products", pathMatch: "full" },
       { path: 'products', component: ProductListComponent },
       { path: 'products/detail/:id', component: ProductDetailComponent },
       { path: 'signup', component: SignupComponent },
