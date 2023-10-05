@@ -29,16 +29,16 @@ export class ProductsComponent {
       });
     }
     
-  removeProduct(id: any) {
+  removeProduct(id: number) {
     const confirm = window.confirm(
       'Are you sure you want to remove this product?'
     );
     if (confirm) {
       this.productService.deleteProduct(id).subscribe({
         next: (data) => {
-          //this.products = data,
           alert('Product is deleted');
-          this.router.navigate(['/admin']);
+          this.products = this.products.filter((item) => item.id != id);
+          //this.router.navigate(['/admin']);
         },
         error: (error) => {
           console.log(error);

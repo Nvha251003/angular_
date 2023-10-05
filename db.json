@@ -1,44 +1,12 @@
 {
   "products": [
     {
-      "id": 6,
-      "name": "Product 1 update",
-      "code": "ABC",
-      "releaseDate": "2023-09-26",
-      "price": 200,
-      "imageUrl": "https://picsum.photos/200"
-    },
-    {
-      "name": "Product 1",
-      "code": "ABC",
-      "releaseDate": "2023-09-26",
-      "price": 200,
-      "imageUrl": "https://picsum.photos/200",
-      "id": 7
-    },
-    {
-      "name": "Product 1",
-      "code": "ABC",
-      "releaseDate": "2023-09-26",
-      "price": 200,
-      "imageUrl": "https://picsum.photos/200",
-      "id": 8
-    },
-    {
       "name": "Product 1",
       "code": "ABC",
       "releaseDate": "2023-09-26",
       "price": 200,
       "imageUrl": "https://picsum.photos/200",
       "id": 9
-    },
-    {
-      "name": "Product 2",
-      "code": "ABC",
-      "releaseDate": "2023-09-26",
-      "price": 200,
-      "imageUrl": "https://picsum.photos/200",
-      "id": 10
     },
     {
       "name": "Product 2",
@@ -55,14 +23,6 @@
       "releaseDate": "2023-09-28",
       "price": 300,
       "imageUrl": "https://picsum.photos/200"
-    },
-    {
-      "name": "New Product 1",
-      "code": "NVH",
-      "releaseDate": "2023-09-01",
-      "price": 10000,
-      "imageUrl": "https://picsum.photos/200",
-      "id": 13
     }
   ]
 }
