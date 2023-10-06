@@ -10,30 +10,36 @@ import { ManageProductComponent } from './pages/admin/manage-product/manage-prod
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
+import { BaseLayoutComponent } from './layouts/base-layout/base-layout.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
+import { adminRoute, productRoute } from './routes/product.routes';
 
 const routes: Routes = [
+  // Web
   {
     path: '',
-    component: LayoutAdminComponent,
+    component: BaseLayoutComponent,
     children: [
       { path: '', redirectTo: "products", pathMatch: "full" },
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/detail/:id', component: ProductDetailComponent },
+      ...productRoute,
       { path: 'signup', component: SignupComponent },
       { path: 'signin', component: SigninComponent },
+      { path: 'contact', component: ContactComponent},
+      { path: 'about', component: AboutComponent}
     ],
   },
+
+  // Admin
   {
     path: 'admin',
     component: LayoutAdminComponent,
     children: [
-      { path: '', component: ProductsComponent },
-      { path: 'add', component: ProductAddComponent },
-      { path: 'detail/:id', component: ProductDetailComponent },
-      { path: 'edit/:id', component: ProductEditComponent },
-    ],
+      { path: '', redirectTo: 'product', pathMatch: 'full' },
+      ...adminRoute
+    ]
   },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
