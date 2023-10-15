@@ -19,11 +19,14 @@ export class ProductEditComponent {
   product!: IProduct
   productForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      code: ['',  [Validators.required, Validators.minLength(3)]],
-      releaseDate: ['', Validators.required],
+      //code: ['',  [Validators.required, Validators.minLength(3)]],
+      createdAt: ['', Validators.required],
       price: [0, Validators.required],
-      imageUrl: ['', [Validators.required]],
+      //imageUrl: ['', [Validators.required]],
+      description: ['', [Validators.required]]
   })
+
+  
 
   constructor(
     private productService: ProductService,
@@ -32,9 +35,12 @@ export class ProductEditComponent {
     private router: Router
   ) {
     this.route.params.subscribe(({ id }) => {
+      
       this.productService.getProductById(id).subscribe({
-        next: (data: IProduct) => {
-          this.product = data
+        next: (data:any) => {
+          this.product = data.data
+          //console.log(this.product);
+          
           this.productForm.patchValue(this.product as any)
         }
       })
@@ -42,9 +48,11 @@ export class ProductEditComponent {
   }
 
   onHandleEdit() {
+    // đoạn ni k đc để _id trước .. this.productService...vì để trước hắn k overriding lại đc data mới truyền vô
+    
     const product = {
-      id: this.product.id,
-      ...this.productForm.value
+      ...this.productForm.value,
+      _id: this.product._id,
     }
     this.productService.updateProduct(product as IProduct).subscribe({
       next: () => {

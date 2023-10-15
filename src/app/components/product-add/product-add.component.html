@@ -11,8 +11,11 @@
         aria-describedby="emailHelp"
         placeholder="Enter name"
       />
+      <!-- <div *ngIf="productForm.get('name')?.hasError('name') && productForm.get('name')?.touched">
+        <p class="text-red-500">Name is required</p>
+      </div> -->
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="exampleInputPassword1">Product Code:</label>
       <input
         type="text"
@@ -21,13 +24,19 @@
         id="exampleInputPassword1"
         placeholder="Code"
       />
+    </div> -->
+    <div class="form-group">
+      <label for="exampleInputPassword1">Product Description:</label>
+      <textarea class="form-control"
+      formControlName="description"
+      placeholder="Description"></textarea>
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Product releaseDate:</label>
       <input
         type="date"
         class="form-control"
-        formControlName="releaseDate"
+        formControlName="createdAt"
         id="exampleInputEmail1"
         aria-describedby="emailHelp"
         placeholder="Product releaseDate"
@@ -43,7 +52,7 @@
         placeholder=""
       />
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="exampleInputEmail1">Product image:</label>
       <input
         type="text"
@@ -53,7 +62,7 @@
         aria-describedby="emailHelp"
         placeholder=""
       />
-    </div>
+    </div> -->
     <button type="submit" class="btn btn-primary my-2" [disabled]="!productForm.valid">Submit</button>
   </form>
 </div>

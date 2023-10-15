@@ -12,8 +12,8 @@ export class ProductListComponent {
 
   constructor(private privateService: ProductService) {
     this.privateService.getAll().subscribe({
-      next: data => {
-        this.products = data
+      next: (data:any) => {
+        this.products = data.data
       },
       error: (error) => {
         console.log(error);

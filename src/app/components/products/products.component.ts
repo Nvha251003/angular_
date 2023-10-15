@@ -17,8 +17,12 @@ export class ProductsComponent {
     private router: Router
     ) {
       this.productService.getAll().subscribe({
-        next: (data) => {
-          this.products = data;
+        next: (data: any) => {
+          
+          this.products = data.data;
+          //console.log(data);
+          
+          
         },
         error: (error) => {
           console.log(error);
@@ -29,16 +33,20 @@ export class ProductsComponent {
       });
     }
     
-  removeProduct(id: number) {
+  removeProduct(id: any) {
+    //console.log(id);
+    
     const confirm = window.confirm(
       'Are you sure you want to remove this product?'
     );
     if (confirm) {
       this.productService.deleteProduct(id).subscribe({
         next: (data) => {
+          //console.log(data);
+          
           alert('Product is deleted');
-          this.products = this.products.filter((item) => item.id != id);
-          //this.router.navigate(['/admin']);
+          this.products = this.products.filter((item) => item._id != id);
+          this.router.navigate(['/admin']);
         },
         error: (error) => {
           console.log(error);
